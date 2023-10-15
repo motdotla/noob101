@@ -7,6 +7,7 @@
     "@oclif/core": "^3",
     "@oclif/plugin-help": "^5",
     "@oclif/plugin-plugins": "^3.9.1",
+    "chalk": "^4.1.2",
     "eslint-config-prettier": "^9.0.0"
   },
   "description": "Websites for noobs",

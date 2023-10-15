@@ -27,8 +27,7 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`noob123 hello PERSON`](#noob123-hello-person)
-* [`noob123 hello world`](#noob123-hello-world)
+* [`noob123 deploy`](#noob123-deploy)
 * [`noob123 help [COMMANDS]`](#noob123-help-commands)
 * [`noob123 plugins`](#noob123-plugins)
 * [`noob123 plugins:install PLUGIN...`](#noob123-pluginsinstall-plugin)
@@ -40,47 +39,22 @@ USAGE
 * [`noob123 plugins:uninstall PLUGIN...`](#noob123-pluginsuninstall-plugin-2)
 * [`noob123 plugins update`](#noob123-plugins-update)
 
-## `noob123 hello PERSON`
+## `noob123 deploy`
 
-Say hello
-
-```
-USAGE
-  $ noob123 hello PERSON -f <value>
-
-ARGUMENTS
-  PERSON  Person to say hello to
-
-FLAGS
-  -f, --from=<value>  (required) Who is saying hello
-
-DESCRIPTION
-  Say hello
-
-EXAMPLES
-  $ oex hello friend --from oclif
-  hello friend from oclif! (./src/commands/hello/index.ts)
-```
-
-_See code: [src/commands/hello/index.ts](https://github.com/motdotla/noob123/blob/v0.0.1/src/commands/hello/index.ts)_
-
-## `noob123 hello world`
-
-Say hello world
+Deploy your website noob
 
 ```
 USAGE
-  $ noob123 hello world
+  $ noob123 deploy
 
 DESCRIPTION
-  Say hello world
+  Deploy your website noob
 
 EXAMPLES
-  $ noob123 hello world
-  hello world! (./src/commands/hello/world.ts)
+  $ noob123 deploy
 ```
 
-_See code: [src/commands/hello/world.ts](https://github.com/motdotla/noob123/blob/v0.0.1/src/commands/hello/world.ts)_
+_See code: [src/commands/deploy.ts](https://github.com/motdotla/noob123/blob/v0.0.1/src/commands/deploy.ts)_
 
 ## `noob123 help [COMMANDS]`
 
