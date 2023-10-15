@@ -5,5 +5,5 @@ Websites for noobs.
 Works with a single command.
 
 ```
-npx noob123 deploy
+npx noob123@latest deploy
 ```
