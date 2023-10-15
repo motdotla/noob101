@@ -18,7 +18,7 @@ $ npm install -g noob123
 $ noob123 COMMAND
 running command...
 $ noob123 (--version)
-noob123/0.0.1 darwin-arm64 node-v20.5.0
+noob123/0.0.2 darwin-arm64 node-v20.5.0
 $ noob123 --help [COMMAND]
 USAGE
   $ noob123 COMMAND
@@ -54,7 +54,7 @@ EXAMPLES
   $ noob123 deploy
 ```
 
-_See code: [src/commands/deploy.ts](https://github.com/motdotla/noob123/blob/v0.0.1/src/commands/deploy.ts)_
+_See code: [src/commands/deploy.ts](https://github.com/motdotla/noob123/blob/v0.0.2/src/commands/deploy.ts)_
 
 ## `noob123 help [COMMANDS]`
 
