@@ -12,10 +12,10 @@ Fork and clone the repo. Use `./bin/dev` to run local development commands.
 If you need to send the request to a different vault url, modify your command(s) to the following.
 
 ```
-NODE_TLS_REJECT_UNAUTHORIZED=0 NOOB123_API_URL=https://api.noob123.development ./bin/dev
+NODE_TLS_REJECT_UNAUTHORIZED=0 NOOB101_API_URL=https://api.noob101.development ./bin/dev
 ```
 
-Note that noob123 uses [oclif](https://oclif.io/).
+Note that noob101 uses [oclif](https://oclif.io/).
 
 ## Testing
 

@@ -1,7 +1,7 @@
 {
   "author": "Scott Motte @motdotla",
   "bin": {
-    "noob123": "./bin/run.js"
+    "noob101": "./bin/run.js"
   },
   "dependencies": {
     "@oclif/core": "^3",
@@ -10,7 +10,7 @@
     "chalk": "^4.1.2",
     "eslint-config-prettier": "^9.0.0"
   },
-  "description": "Websites for noobs",
+  "description": "Websites for noobs!",
   "devDependencies": {
     "@oclif/prettier-config": "^0.2.1",
     "@oclif/test": "^3",
@@ -36,13 +36,13 @@
     "/npm-shrinkwrap.json",
     "/oclif.manifest.json"
   ],
-  "homepage": "https://github.com/motdotla/noob123",
+  "homepage": "https://github.com/motdotla/noob101",
   "license": "MIT",
   "main": "dist/index.js",
-  "name": "noob123",
+  "name": "noob101",
   "oclif": {
-    "bin": "noob123",
-    "dirname": "noob123",
+    "bin": "noob101",
+    "dirname": "noob101",
     "commands": "./dist/commands",
     "plugins": [
       "@oclif/plugin-help",
@@ -55,7 +55,7 @@
       }
     }
   },
-  "repository": "motdotla/noob123",
+  "repository": "motdotla/noob101",
   "scripts": {
     "build": "shx rm -rf dist && tsc -b",
     "lint": "eslint . --ext .ts",
@@ -66,7 +66,7 @@
     "version": "oclif readme && git add README.md"
   },
   "version": "0.0.2",
-  "bugs": "https://github.com/motdotla/noob123/issues",
+  "bugs": "https://github.com/motdotla/noob101/issues",
   "keywords": [
     "oclif"
   ],
