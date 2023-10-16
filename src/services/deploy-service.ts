@@ -1,4 +1,5 @@
 import {ux} from '@oclif/core'
+const chalk = require('chalk')
 import axios, {AxiosRequestConfig} from 'axios'
 import {existsSync, readFileSync} from 'fs'
 import {vars} from '../vars'
@@ -27,7 +28,7 @@ class DeployService {
       this.abort.emptyIndexHtml()
     }
 
-    let deployingMsg = `Deploying (${vars.indexHtmlFilename})`
+    let deployingMsg = `Deploying ${vars.indexHtmlFilename}`
     ux.action.start(deployingMsg)
     await this.deploy()
   }
@@ -49,8 +50,9 @@ class DeployService {
 
       ux.action.stop()
 
-      this.cmd.log(url)
-
+      this.cmd.log('')
+      this.cmd.log(`Next visit, ${chalk.bold(url)}`)
+      this.cmd.log('')
       qrcode.generate(url)
     } catch (error) {
       ux.action.stop('aborting')

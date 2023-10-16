@@ -49,7 +49,7 @@ class AbortService {
     this.error(`Missing ${vars.indexHtmlFilename}.`, {
       code: 'MISSING_INDEX_HTML',
       ref: '',
-      suggestions: [`Run, ${chalk.bold('touch index.html')}`],
+      suggestions: [`Run, ${chalk.bold(`${vars.cli} new`)}`],
     })
   }
 
@@ -57,9 +57,18 @@ class AbortService {
     this.error(`Empty ${vars.indexHtmlFilename}.`, {
       code: 'EMPTY_INDEX_HTML',
       ref: '',
-      suggestions: [`Run, ${chalk.bold('nano index.html')}`],
+      suggestions: [`Run, ${chalk.bold(`${vars.cli} edit`)}`],
     })
   }
+
+  existingIndexHtml(): void {
+    this.error(`Existing ${vars.indexHtmlFilename}.`, {
+      code: 'EXISTING_INDEX_HTML',
+      ref: '',
+      suggestions: [`Run, ${chalk.bold(`${vars.cli} deploy`)}`],
+    })
+  }
+
 }
 
 export {AbortService}

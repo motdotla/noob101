@@ -1,4 +1,5 @@
 import {ux} from '@oclif/core'
+const chalk = require('chalk')
 import {writeFileSync} from 'fs'
 import {vars} from '../vars'
 import {AbortService} from '../services/abort-service'
@@ -18,14 +19,17 @@ class NewService {
 
   async run(): Promise<void> {
     if (vars.missingIndexHtml) {
-      let creatingMsg = `Creating (${vars.indexHtmlFilename})`
+      let creatingMsg = `Creating ${vars.indexHtmlFilename}`
       ux.action.start(creatingMsg)
 
       writeFileSync(vars.indexHtmlFilename, this.indexHtmlContent())
 
       ux.action.stop()
+
+      this.cmd.log('')
+      this.cmd.log(`Next run, ${chalk.bold(`${vars.cli} deploy`)}`)
     } else {
-      // send message that index.html already exists
+      this.abort.existingIndexHtml()
     }
   }
 

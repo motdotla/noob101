@@ -1,6 +1,11 @@
 import {existsSync, readFileSync} from 'fs'
 
 export class Vars {
+  get cli(): string {
+    // read from process.env first, then then default
+    return process.env.NOOB101_CLI || 'npx noob101@latest'
+  }
+
   get indexHtmlFilename(): string {
     return 'index.html'
   }
