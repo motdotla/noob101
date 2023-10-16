@@ -1,7 +1,7 @@
 import {readFileSync, writeFileSync} from 'fs'
+import {vars} from './vars'
 
 const terminalKit = require('terminal-kit')
-const file = 'index.html'
 
 class Editor {
   public term;
@@ -33,7 +33,7 @@ class Editor {
     this.term.grabInput({ mouse: false })
 
     // load
-    let content = readFileSync(file, 'utf8')
+    let content = readFileSync(vars.indexHtmlFilename, 'utf8')
     this.textBuffer.setText('')
     this.textBuffer.insert(content)
     this.textBuffer.moveTo(0, 0)
@@ -44,8 +44,8 @@ class Editor {
   }
 
   drawTitleBar() {
-    this.drawBar({ x: 1, y: 1 }, 'index.html')
-    this.term.windowTitle('index.html')
+    this.drawBar({ x: 1, y: 1 }, vars.indexHtmlFilename)
+    this.term.windowTitle(vars.indexHtmlFilename)
   }
 
   drawBar(pos: any, message: string) {
@@ -194,7 +194,7 @@ class Editor {
   }
 
   save() {
-    writeFileSync(file, this.textBuffer.getText())
+    writeFileSync(vars.indexHtmlFilename, this.textBuffer.getText())
     // this.drawStatusBar('Saved!', 2000);
   }
 }
