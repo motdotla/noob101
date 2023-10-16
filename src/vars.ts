@@ -22,6 +22,17 @@ export class Vars {
 
     return !(content && content.toString().length > 0)
   }
+
+  get indexHtml(): string {
+    const content = readFileSync(this.indexHtmlFilename, 'utf8')
+
+    return content
+  }
+
+  get v1Url(): string {
+    // read from process.env first, then default
+    return process.env.NOOB101_V1_URL || 'https://v1.noob101.com'
+  }
 }
 
 export const vars = new Vars()
