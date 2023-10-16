@@ -19,7 +19,7 @@ touch index.html
 Edit its contents.
 
 ```
-nano index.html
+npx noob101@latest edit
 ```
 ```
 <h1>Hello World</h1>

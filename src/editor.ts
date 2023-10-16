@@ -122,6 +122,9 @@ class Editor {
       case 'RIGHT':
         this.right()
         break
+      case 'TAB':
+        this.tab()
+        break
       default:
         // user inputted keys
         if (data.isCharacter) {
@@ -183,6 +186,11 @@ class Editor {
       acc += curr.char.trim()
       return acc
     }, '')
+  }
+
+  tab() {
+    this.textBuffer.insert('  ') // insert 2 spaces for a tab
+    this.draw()
   }
 
   save() {
