@@ -22,7 +22,7 @@ class Editor {
     this.textBuffer.setText('')
   }
 
-  init(): Promise<void> {
+  init() {
     // onKey
     this.term.on('key', this.onKey.bind(this))
 
@@ -43,16 +43,16 @@ class Editor {
     this.drawTitleBar()
   }
 
-  drawTitleBar(): Promise<void> {
+  drawTitleBar() {
     this.drawBar({ x: 1, y: 1 }, 'index.html')
     this.term.windowTitle('index.html')
   }
 
-  drawBar(pos, message): Promise<void> {
+  drawBar(pos: any, message: string) {
     this.term.moveTo(pos.x, pos.y).styleReset.bgWhite.black.bold.eraseLine(message);
   }
 
-  exit(): Promise<void> {
+  exit() {
     setTimeout(() => {
       this.save()
 
@@ -63,13 +63,13 @@ class Editor {
     })
   }
 
-  draw(): Promise<void> {
+  draw() {
     this.textBuffer.draw()
     this.screenBuffer.draw({ delta: true })
     this.drawCursor()
   }
 
-  drawCursor(): Promise<void> {
+  drawCursor() {
     let new_buffer_x = this.textBuffer.x
     let new_buffer_y = this.textBuffer.y
 
@@ -96,7 +96,7 @@ class Editor {
     this.screenBuffer.drawCursor()
   }
 
-  onKey(key, matches, data): Promise<void> {
+  onKey(key: string, matches: any, data: any) {
     switch (key) {
       case 'CTRL_C':
         this.exit()
@@ -131,17 +131,17 @@ class Editor {
     }
   }
 
-  backspace(): Promise<void> {
+  backspace() {
     this.textBuffer.backDelete(1)
     this.draw()
   }
 
-  newLine(): Promise<void> {
+  newLine() {
     this.textBuffer.newLine()
     this.draw()
   }
 
-  up(): Promise<void> {
+  up() {
     this.textBuffer.moveUp()
 
     if (this.textBuffer.cx > this.textBuffer.buffer[this.textBuffer.cy].length - 1) {
@@ -151,7 +151,7 @@ class Editor {
     this.drawCursor()
   }
 
-  down(): Promise<void> {
+  down() {
     if (this.textBuffer.getContentSize().height - 1 > this.textBuffer.cy) {
       this.textBuffer.moveDown()
 
@@ -163,12 +163,12 @@ class Editor {
     }
   }
 
-  left(): Promise<void> {
+  left() {
     this.textBuffer.moveBackward()
     this.drawCursor()
   }
 
-  right(): Promise<void> {
+  right() {
     if (this.textBuffer.cx < this.getLine().length) {
       this.textBuffer.moveRight()
     } else if (this.textBuffer.getContentSize().height - 1 > this.textBuffer.cy) {
@@ -179,13 +179,13 @@ class Editor {
   }
 
   getLine(): string {
-    return this.textBuffer.buffer[this.textBuffer.cy].reduce((acc, curr) => {
+    return this.textBuffer.buffer[this.textBuffer.cy].reduce((acc: any, curr: any) => {
       acc += curr.char.trim()
       return acc
     }, '')
   }
 
-  save(): Promise<void> {
+  save() {
     writeFileSync(file, this.textBuffer.getText())
     // this.drawStatusBar('Saved!', 2000);
   }
