@@ -49,7 +49,9 @@ class DeployService {
       const url = resp.data.data.url
 
       ux.action.stop()
-
+      let generatingMsg = 'Generating QR code'
+      ux.action.start(generatingMsg)
+      ux.action.stop()
       qrcode.generate(url)
       this.cmd.log('')
       this.cmd.log(`Next visit, ${chalk.bold(url)}`)

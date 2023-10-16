@@ -22,7 +22,11 @@ class EditService {
       this.abort.missingIndexHtml()
     }
 
-    const editor = new Editor()
+    let editingMsg = `Editing ${vars.indexHtmlFilename}`
+    ux.action.start(editingMsg)
+    ux.action.stop()
+
+    const editor = new Editor({cmd: this.cmd})
     editor.init()
   }
 }

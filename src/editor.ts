@@ -1,16 +1,25 @@
 import {readFileSync, writeFileSync} from 'fs'
+const chalk = require('chalk')
 import {vars} from './vars'
+import {ux} from '@oclif/core'
 
 const terminalKit = require('terminal-kit')
 
+interface EditorAttrs {
+  cmd: any;
+}
+
 class Editor {
+  public cmd;
   public term;
   public screenBuffer;
   public textBuffer;
 
-  constructor() {
-    this.term = terminalKit.terminal
+  constructor(attrs: EditorAttrs = {} as EditorAttrs) {
+    this.cmd = attrs.cmd
 
+    // inits
+    this.term = terminalKit.terminal
     this.screenBuffer = new terminalKit.ScreenBuffer({
       dst: this.term,
       height: this.term.height - 2,
@@ -59,7 +68,17 @@ class Editor {
       this.term.grabInput(false)
       this.term.fullscreen(false)
 
-      setTimeout(() => process.exit(0), 100)
+      let savingMsg = `Saving ${vars.indexHtmlFilename}`
+      ux.action.start(savingMsg)
+
+      setTimeout(() => {
+        ux.action.stop()
+
+        this.cmd.log('')
+        this.cmd.log(`Next run, ${chalk.bold(`${vars.cli} deploy`)}`)
+
+        process.exit(0)
+      }, 1000)
     })
   }
 
