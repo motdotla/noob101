@@ -50,10 +50,9 @@ class DeployService {
 
       ux.action.stop()
 
+      qrcode.generate(url)
       this.cmd.log('')
       this.cmd.log(`Next visit, ${chalk.bold(url)}`)
-      this.cmd.log('')
-      qrcode.generate(url)
     } catch (error) {
       ux.action.stop('aborting')
 

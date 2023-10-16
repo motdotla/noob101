@@ -41,7 +41,8 @@ class NewService {
 </head>
 <body>
   <h1>Hello World</h1>
-  <p>Welcome to my website for noobs!</p>
+  <p>You created your first website, noob!</p>
+  <p>Next run, <strong>${vars.cli} edit</strong></p>
 </body>
 </html>`
 
