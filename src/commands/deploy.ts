@@ -3,7 +3,7 @@ import {Command} from '@oclif/core'
 import {DeployService} from '../services/deploy-service'
 
 export default class Deploy extends Command {
-  static description = 'Deploy your website noob'
+  static description = 'Deploy index.html'
 
   static examples = [
     '<%= config.bin %> <%= command.id %>',
