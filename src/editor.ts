@@ -53,7 +53,7 @@ class Editor {
   }
 
   drawTitleBar() {
-    this.drawBar({ x: 1, y: 1 }, vars.indexHtmlFilename)
+    this.drawBar({ x: 1, y: 1 }, `${vars.indexHtmlFilename} (press ESCAPE key to save and exit)`)
     this.term.windowTitle(vars.indexHtmlFilename)
   }
 
