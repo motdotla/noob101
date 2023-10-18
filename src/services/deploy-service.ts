@@ -38,9 +38,7 @@ class DeployService {
     const options: AxiosRequestConfig = {
       method: 'POST',
       headers: {'content-type': 'application/json'},
-      data: {
-        indexHtml: vars.indexHtml
-      },
+      data: this.data,
       url: this.url,
     }
 
@@ -60,11 +58,6 @@ class DeployService {
       qrcode.generate(url)
       this.cmd.log('')
       this.cmd.log(`Next visit, ${chalk.bold(url)}`)
-
-      // generate .env file unless already exists
-      // OWNER_KEY="key_1234"
-      // SUBDOMAIN="dfjkdfj"
-      // those 2 parameters allow you to publish to a url. you need both.
     } catch (error) {
       ux.action.stop('aborting')
 
@@ -74,6 +67,14 @@ class DeployService {
 
   get url(): string {
     return vars.v1Url + '/deploy'
+  }
+
+  get data(): object {
+    return {
+      ownerKey: vars.ownerKey,
+      subdomain: vars.subdomain,
+      indexHtml: vars.indexHtml
+    }
   }
 }
 

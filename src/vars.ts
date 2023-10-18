@@ -1,3 +1,4 @@
+import * as dotenv from 'dotenv'
 import {existsSync, readFileSync} from 'fs'
 
 export class Vars {
@@ -49,6 +50,22 @@ export class Vars {
 
   get missingEnv(): boolean {
     return !existsSync(this.envFilename)
+  }
+
+  get envParsed(): Record<string, any> {
+    if (this.missingEnv) {
+      return {}
+    } else {
+      return dotenv.configDotenv({path: vars.envFilename}).parsed || {}
+    }
+  }
+
+  get ownerKey(): string {
+    return this.envParsed['OWNER_KEY'] || ''
+  }
+
+  get subdomain(): any {
+    return this.envParsed['SUBDOMAIN'] || ''
   }
 }
 
