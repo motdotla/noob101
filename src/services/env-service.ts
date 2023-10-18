@@ -2,7 +2,7 @@ import {vars} from '../vars'
 import {writeFileSync} from 'fs'
 
 interface EnvServiceAttrs {
-  owner_key: string;
+  ownerKey: string;
   subdomain: string;
 }
 
