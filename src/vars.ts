@@ -38,6 +38,18 @@ export class Vars {
     // read from process.env first, then default
     return process.env.NOOB101_V1_URL || 'https://v1.noob101.com'
   }
+
+  get envFilename(): string {
+    return '.env'
+  }
+
+  get existingEnv(): boolean {
+    return existsSync(this.envFilename)
+  }
+
+  get missingEnv(): boolean {
+    return !existsSync(this.envFilename)
+  }
 }
 
 export const vars = new Vars()
