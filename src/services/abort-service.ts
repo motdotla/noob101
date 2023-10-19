@@ -18,6 +18,26 @@ class AbortService {
     this.cmd = attrs.cmd
   }
 
+  handleError(error: any, fallbackErrorCode: string): void {
+    let errorMessage = error
+    let errorCode = fallbackErrorCode
+    let suggestions = []
+
+    if (error.response && error.response.data && error.response.data.error) {
+      const error1 = error.response.data.error
+
+      errorMessage = error1.message
+      if (error1.code) {
+        errorCode = error1.code
+      }
+      if (error1.suggestions) {
+        suggestions = error1.suggestions
+      }
+    }
+
+    this.error(errorMessage, {code: errorCode, ref: '', suggestions: suggestions})
+  }
+
   error(msg: string, obj: ErrorInfo): void {
     this.cmd.log(`${chalk.red('x')} Aborted.`)
 
